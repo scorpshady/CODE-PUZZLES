@@ -1,0 +1,27 @@
+class Solution(object):
+    def findMaxConsecutiveOnes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        storeMaxSize = 0
+        total = 0
+        ptr = 0
+        collectMax = True
+        for num in range(len(nums)):
+            if(nums[num] == 1):
+                total += 1
+                collectMax = True
+            else:
+                if(collectMax == True):
+                    if(total > storeMaxSize):
+                        storeMaxSize = total
+                    collectMax = False
+                total = 0
+            if(total > storeMaxSize):
+                storeMaxSize = total
+        return storeMaxSize
+            
+
+
+        
