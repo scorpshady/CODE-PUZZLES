@@ -1,0 +1,34 @@
+class Solution(object):
+    def reverse(self, nums, lft, rht):
+        mid = ((rht - lft ) / 2 ) 
+        mid = lft + mid
+        num1 = rht
+        for i in range(lft, mid + 1):
+            if( i == num1):
+                break
+            temp = nums[num1]
+            nums[num1] = nums[i]
+            nums[i] = temp
+            num1 -= 1
+
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        try using reversal algorithm here
+        """
+        if(k > len(nums)):
+            #self.reverse(nums, 0, len(nums) - 1)
+            k = (k % len(nums))
+            
+        num = len(nums) - k 
+        right = num 
+        left = num - 1
+
+        self.reverse(nums, 0, left)
+        self.reverse(nums, right ,len(nums) - 1)
+        self.reverse(nums, 0 , len(nums) - 1)
+
+
+        
