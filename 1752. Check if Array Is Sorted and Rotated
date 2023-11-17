@@ -1,0 +1,23 @@
+class Solution(object):
+    def check(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        lenArray =  len(nums)
+        store = 0
+        if(lenArray == 1):
+            return True
+        for i in range(1, lenArray):
+            store = nums[i - 1]
+            if(nums[i] < store):
+                lst1 = nums[i:]
+                lst2 = nums[:i]
+                nums = lst1 + lst2
+                break
+            
+        if(sorted(nums) == nums):
+            return True
+        else:
+            return False
+        
