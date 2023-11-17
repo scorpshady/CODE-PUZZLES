@@ -1,0 +1,23 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        lenList = len(nums)
+        i = 0
+        toAddList = 1
+        while(True):
+            i += 1
+            if(i == len(nums)):
+                break
+            if(nums[i] == nums[i - 1]):
+                nums.remove(nums[i])
+                
+                i -= 1
+            
+        
+        
+        return len(nums)
+
+        
