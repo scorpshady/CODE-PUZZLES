@@ -1,0 +1,19 @@
+def removeDups(a):
+    i = 0
+    while(True):
+        i += 1
+        if(i == len(a)):
+            break
+        if(a[i] == a[i - 1]):
+            a.remove(a[i])
+            i -= 1
+    return a
+def sortedArray(a: [int], b: [int]) -> [int]:
+    # Write your code here
+    #remove duplicates from list
+    a = removeDups(a)
+    b = removeDups(b)
+    lst = a + b
+    lst.sort()
+    lst = removeDups(lst)
+    return lst
