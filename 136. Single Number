@@ -1,0 +1,18 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        mydict = dict()
+
+        for num in range(len(nums)):
+            mydict[nums[num]] = 0
+
+        for num in range(len(nums)):
+            mydict[nums[num]] += 1
+        
+        for num in range(len(nums)):
+            if(mydict[nums[num]] == 1):
+                return nums[num]
+        
