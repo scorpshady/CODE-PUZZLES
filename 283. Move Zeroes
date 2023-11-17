@@ -1,0 +1,36 @@
+class Solution(object):
+    def swap(self, nums, i , j):
+        temp = nums[j]
+        nums[j] = nums[i]
+        nums[i] = temp
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        :iterate the array and check if you get a zero, find next element which is non zero and swap it. Continue with the same process.
+        """
+        i = 0
+        index = 0
+        breakOut = False
+        while(True):
+            if(i == len(nums)):
+                break
+            if(breakOut == True):
+                break
+            if(nums[i] == 0):
+                if(i != len(nums) - 1):
+                    j = i + 1
+                    while(True):
+                        if(j == len(nums)):
+                            break
+                        if(nums[j] != 0):
+                            self.swap(nums, i , j)
+                            i -=  1
+                            break
+                        j += 1
+                else:
+                    breakOut = True
+                    break
+            i += 1
+
+        
