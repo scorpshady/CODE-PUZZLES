@@ -1,0 +1,19 @@
+def longestSubarrayWithSumK(a: [int], k: int) -> int:
+    # Write your code here
+    # Code with Time complexity O(N) and Space complexity O(N)
+    hashmap = dict()
+    sum     = 0
+    maxlen  = 0
+
+    for i in range(len(a)):
+        sum += a[i]
+
+        if(sum == k):
+            maxlen = i + 1
+        elif (sum - k) in hashmap:
+            maxlen = max(maxlen,i - hashmap[sum - k])
+        
+        if sum not in hashmap:
+            hashmap[sum] = i
+        
+    return maxlen
