@@ -1,0 +1,15 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        finalsum = -sys.maxsize
+        comparewithme = 0
+        for i in range(len(nums)):
+            comparewithme = max(nums[i], nums[i] + comparewithme)
+            if(comparewithme > finalsum):
+                finalsum = comparewithme
+        
+        return finalsum
+        
