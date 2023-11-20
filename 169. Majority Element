@@ -1,0 +1,20 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        lengthtocheck = int (len(nums)/2)
+
+        mydict = dict()
+
+        for i in range(len(nums)):
+            mydict[nums[i]] = 0
+        
+        for i in range(len(nums)):
+            mydict[nums[i]] += 1
+
+        for i in range(len(nums)):
+            if(mydict[nums[i]] > lengthtocheck):
+                return nums[i]
+        
