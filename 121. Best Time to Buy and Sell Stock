@@ -1,0 +1,21 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        #Using one of Leetcode soln approach (good approach)
+
+        left            = 0
+        right           = 1
+        currentprofit   = 0
+        maxprofit       = 0
+
+        while(right < len(prices)):
+            currentprofit = prices[right] - prices[left]
+            if(prices[left] < prices[right]):
+                maxprofit = max(currentprofit, maxprofit)
+            else:
+                left = right
+            right += 1
+        return maxprofit
