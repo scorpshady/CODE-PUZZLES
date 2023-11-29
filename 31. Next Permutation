@@ -1,0 +1,37 @@
+class Solution(object):
+    def rev(self, nums , strt , end):
+        mid = strt + int((end - 1 - strt)/ 2)
+        lstindex = end - 1
+        for i in range(strt , end):
+            if(i == mid + 1):
+                break
+            temp = nums[i]
+            nums[i] = nums[lstindex]
+            nums[lstindex] = temp
+            lstindex -= 1
+    def nextPermutation(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        #lastnum = nums[len(nums) - 2]
+        n = len(nums)
+        j = n - 2
+        i = 0
+        while(j >= 0):
+            if(nums[j] < nums[j + 1]):
+                break
+            j -= 1
+        # got the pivot for lowest number from the end
+
+        if(j == -1):
+            nums.reverse()
+        else:
+            for i in range(n - 1, j , -1):
+                if(nums[i] > nums[j]):
+                    nums[j], nums[i] = nums[i], nums[j]
+                    self.rev(nums, j + 1, len(nums))
+                    #nums[j + 1, ]
+                    break
+
+        
